@@ -1,0 +1,266 @@
+.gu-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+  color: var(--text-color);
+}
+.gu-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.gu-icon {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 8px;
+  font-size: 18px;
+}
+.gu-title {
+  margin: 0;
+  font-size: 20px;
+}
+.gu-subtitle {
+  margin: 2px 0 0;
+  color: var(--muted-text);
+  font-size: 13px;
+}
+
+/* dropzone */
+.gu-dropzone {
+  margin-top: 16px;
+  border: 2px dashed var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 160ms, border-color 160ms;
+  background: var(--bg-color);
+}
+.gu-dropzone:hover {
+  border-color: var(--secondary-color);
+}
+.gu-dropzone.dragging {
+  border-color: var(--secondary-color);
+  background: var(--primary-50);
+}
+.gu-dropzone-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.gu-drop-icon {
+  font-size: 28px;
+}
+.gu-drop-title {
+  font-weight: 600;
+}
+.gu-drop-or {
+  font-size: 12px;
+  color: var(--muted-text);
+}
+.gu-file-input {
+  display: none;
+}
+
+/* actions & buttons */
+.gu-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.btn {
+  width: 200px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-color);
+  padding: 8px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 120ms, box-shadow 120ms, opacity 120ms, color 120ms,
+    border-color 120ms;
+  color: var(--text-color);
+}
+.btn:hover {
+  background: var(--primary-50);
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: var(--secondary-color);
+  color: #fff;
+  border-color: var(--secondary-color);
+}
+.btn-primary:hover {
+  background: var(--secondary-700);
+  border-color: var(--secondary-700);
+}
+.btn-outline {
+  background: var(--primary-color);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+.btn-outline:hover {
+  background: var(--primary-50);
+}
+
+/* counter */
+.gu-counter {
+  font-size: 13px;
+  color: var(--muted-text);
+}
+
+/* grid & cards */
+.gu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.gu-card {
+  position: relative;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-color);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+.gu-card.error {
+  border-color: color-mix(
+    in oklab,
+    var(--error-color) 30%,
+    var(--border-color)
+  );
+}
+.gu-img {
+  display: block;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+.gu-filename {
+  border-top: 1px solid var(--border-color);
+  font-size: 12px;
+  padding: 6px 8px;
+  color: var(--muted-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(140%) blur(2px);
+}
+
+/* remove button */
+.gu-remove {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  border: none;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity 120ms;
+}
+.gu-card:hover .gu-remove {
+  opacity: 1;
+}
+
+/* progress */
+.gu-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 32px;
+  height: 6px;
+  background: color-mix(in oklab, var(--border-color) 80%, var(--bg-color));
+}
+.gu-progress-bar {
+  height: 100%;
+  background: var(--secondary-color);
+  transition: width 120ms linear, background 120ms;
+}
+.gu-progress-bar.done {
+  background: var(--success-color);
+}
+.gu-progress-bar.error {
+  background: var(--error-color);
+}
+
+/* status marks */
+.gu-status {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  font-weight: 700;
+  color: var(--text-color);
+}
+.gu-status .ok {
+  color: var(--success-color);
+}
+.gu-status .err {
+  color: var(--error-color);
+}
+
+/* error chip */
+.gu-error {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  background: color-mix(in oklab, var(--error-color) 20%, #fff);
+  color: #7f1d1d;
+  font-size: 11px;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+/* toast */
+.gu-toast {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 16px;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 10px 14px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+}
+
+/* spinner */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid color-mix(in oklab, var(--primary-color) 60%, #fff);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 6px;
+  vertical-align: -3px;
+}
+.spinner.small {
+  width: 14px;
+  height: 14px;
+  border-color: color-mix(in oklab, var(--secondary-color) 30%, #ddd);
+  border-top-color: var(--secondary-color);
+  margin-right: 0;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

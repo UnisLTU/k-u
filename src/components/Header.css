@@ -1,0 +1,182 @@
+:root {
+  --header-h: 90px; /* JS keeps this updated */
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* The header is FIXED, not sticky/absolute */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+  align-items: flex-start;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: height 0.35s ease; /* thresholded collapse/expand */
+}
+
+/* Spacer takes the header’s current height so the page content starts below it */
+.header-spacer {
+  height: var(--header-h, 90px);
+}
+
+/* Content inside header */
+.header-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.header-content img {
+  height: 300px;
+  width: auto;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+/* Collapsed tweaks */
+.header.is-collapsed .header-content img {
+  height: 180px;
+}
+.header.is-collapsed .header-text {
+  margin-top: 6px;
+}
+.header.is-collapsed .menu {
+  padding: 12px 24px;
+}
+
+/* --- TEXT SECTION --- */
+.header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  line-height: 1.2;
+}
+
+.subtext {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom: 60px;
+}
+
+.header-text h1 {
+  font-size: 2.8rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+.header-text h3 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+.dot {
+  font-size: 1.4rem;
+  opacity: 0.5;
+}
+
+/* --- MENU BAR --- */
+/* Make the menu normal inside the fixed header (no sticky-in-sticky). */
+.menu {
+  width: 100%;
+  background: #fff;
+  margin-top: 20px;
+  padding: 40px;
+  position: static; /* <- changed from sticky bottom */
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  display: inline-block;
+}
+.menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.menu a:hover {
+  color: #888;
+  transform: scale(1.05);
+}
+
+/* Anchor targets never hide under the header */
+[id] {
+  scroll-margin-top: var(--header-h, 90px);
+}
+
+/* --- MEDIA QUERIES --- */
+/* Collapsed header */
+@media (max-width: 600px) {
+  /* Auto-hide animation */
+  .header {
+    justify-content: center;
+    padding-bottom: 0px;
+  }
+  .header.is-hidden {
+    transform: translateY(-100%);
+  }
+  /* Remove spacer height when header is hidden so there’s no blank gap */
+  .header.is-hidden + .header-spacer {
+    height: 0 !important;
+  }
+
+  /* Optional: tighter mobile visual */
+  .menu {
+    display: none;
+  } /* hide menu bar on phones */
+  [id] {
+    scroll-margin-top: 0 !important;
+  } /* no anchor offset on phones */
+  .header-content img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .menu {
+    padding: 28px 20px; /* a bit tighter */
+  }
+
+  .menu ul {
+    display: flex; /* keep flex */
+    flex-wrap: wrap; /* allow wrapping to multiple lines */
+    justify-content: center; /* center each line */
+    column-gap: 28px; /* horizontal gap */
+    row-gap: 12px; /* vertical gap between the two lines */
+  }
+
+  .menu li {
+    flex: 0 0 auto; /* don't stretch; keep natural width */
+  }
+
+  /* optional: slightly smaller labels so they fit comfortably in 2 lines */
+  .menu a {
+    font-size: 1.2rem;
+  }
+}
