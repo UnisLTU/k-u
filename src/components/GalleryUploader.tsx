@@ -38,7 +38,7 @@ export default function GalleryUploader() {
     const isSupported = (f: File) =>
       f.type.startsWith("image/") || f.type.startsWith("video/");
 
-    setPending((prev) => {
+    setPending((prev: PendingItem[]) => {
       const existing = new Set(prev.map((p) => p.key));
       const additions = files
         .filter((f) => isSupported(f) && !existing.has(makeKey(f)))
@@ -47,7 +47,9 @@ export default function GalleryUploader() {
           key: makeKey(file),
           file,
           preview: URL.createObjectURL(file),
-          kind: file.type.startsWith("video/") ? "video" : "image",
+          kind: file.type.startsWith("video/")
+            ? "video"
+            : ("image" as "video" | "image"),
           progress: 0,
           status: "queued" as const,
         }));

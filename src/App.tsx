@@ -20,7 +20,7 @@ function useRevealOnLoad() {
     const els = Array.from(document.querySelectorAll(selectors));
 
     // prepare + assign stagger delay
-    els.forEach((el, i) => {
+    els.forEach((el: HTMLElement, i) => {
       el.classList.add("reveal-init");
       el.style.setProperty("--reveal-delay", `${i * 80}ms`);
     });
