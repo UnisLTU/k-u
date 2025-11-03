@@ -1,0 +1,101 @@
+body {
+  font-family: system-ui, sans-serif;
+  background: #f7f9fb;
+}
+
+.form-container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: white;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.person-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+}
+
+.input-group {
+  flex: 1;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 4px;
+}
+
+input,
+select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.add-btn,
+.submit-btn,
+.remove-btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  padding: 8px 14px;
+  transition: all 0.2s ease;
+  min-height: 36px;
+  min-width: 36px;
+}
+
+.add-btn {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.add-btn:hover {
+  background: var(--secondary-color);
+  opacity: 0.8;
+}
+
+.submit-btn {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.submit-btn:hover {
+  background: var(--secondary-color);
+  opacity: 0.8;
+}
+
+.remove-btn {
+  background: var(--secondary-color);
+  color: white;
+  padding: 6px 10px;
+  align-self: flex-end;
+}
+
+.remove-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}

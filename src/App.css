@@ -2,8 +2,9 @@ html,
 body,
 #root {
   height: 100%;
-  margin: 0;
+  margin: 0px;
   line-height: 1;
+  padding: 0px;
   font-family: 'Arsenal', sans-serif;
   color: var(--secondary-color);
 }
@@ -66,7 +67,7 @@ div {
 }
 
 .main {
-  display: flex;
+
   padding: 20,
   width: 100vw;
 }
@@ -86,9 +87,9 @@ div {
 }
 
 .venue-photo {
-  max-height: 500px;
+  height: 500px;
+  object-fit: cover;
   width: 100%;
-  height: auto;
   display: block;
   border-radius: 10px;
   margin: 12px 0;
@@ -158,6 +159,19 @@ div {
 }
 #dinner {
   gap: 24px;
+}
+
+.carousel {
+  gap: 24px;
+}
+
+.carousel-item {
+  background-color: red;
+  height: 400px;
+  margin: 0 8px;
+  border-radius: 10px;
+  overflow: hidden;
+
 }
 
 /* Optional: header & mobile hamburger fade-in on first paint */

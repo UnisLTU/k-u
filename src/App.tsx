@@ -3,6 +3,9 @@ import "./App.css";
 import HamburgerMenu from "./components/HamburgerMenu";
 import Header from "./components/Header";
 import PhotosSection from "./components/PhotosSection";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import AdditionalSection from "./components/AdditionalSection";
 
 function useRevealOnLoad() {
   useEffect(() => {
@@ -46,6 +49,26 @@ function useRevealOnLoad() {
   }, []);
 }
 
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
+
 function App() {
   useRevealOnLoad();
   return (
@@ -70,7 +93,7 @@ function App() {
           <div className="venue-grid">
             <article className="card">
               <h3>Bažnyčia</h3>
-              <p>
+              <p style={{ minHeight: 50 }}>
                 Ceremonija vyks <strong>Surdegio bažnyčioje</strong>, pradžia
                 12:00. Atvykite keliomis minutėmis anksčiau 🙏
               </p>
@@ -91,9 +114,9 @@ function App() {
 
             <article className="card">
               <h3>Barono vila</h3>
-              <p>
-                Šventės dalis po ceremonijos vyks <strong>Barono viloje</strong>
-                . Laukia jauki aplinka prie ežero.
+              <p style={{ minHeight: 50 }}>
+                Po ceremonijos susitiksime Barono viloje. Jūsų lauks jauki
+                aplinka ir daug erdvės sukurti gražiausius atsiminimus!
               </p>
               <img
                 className="venue-photo"
@@ -115,11 +138,17 @@ function App() {
         {/* 3) DRESS KODAS */}
         <section id="dresscode" className="section">
           <h2>Dress kodas</h2>
-          <p>
-            Prašome rinktis <strong>pusiau oficialų</strong> stilių. Spalvų
-            paletė: švelnios žemės ir pasteliniai tonai. Venkite baltos spalvos
-            suknelių. Patogūs batai pravers pasivaikščioti gamtoje. 👗🕺
+          <p style={{ marginBottom: 20 }}>
+            Neprašyme Jūsų nieko įmantraus, tik bendros spalvų paletės. Labai
+            pamalonintumėte mus, savo aprangai pasirinkę rudos spalvų gamos
+            drabužius. Keletas nuotraukų įkvėpimui:
           </p>
+          <Carousel responsive={responsive} className="carousel">
+            <div className="carousel-item">Item 1</div>
+            <div className="carousel-item">Item 2</div>
+            <div className="carousel-item">Item 3</div>
+            <div className="carousel-item">Item 4</div>
+          </Carousel>
         </section>
 
         {/* 4) VAKARIENĖ */}
@@ -148,18 +177,7 @@ function App() {
         </section>
 
         {/* 6) PAPILDOMAI */}
-        <section id="extra" className="section">
-          <h2>Papildomai</h2>
-          <p>Parkavimas: vietoje yra nemokama aikštelė.</p>
-          <p>
-            Apgyvendinimas: ribotas kambarių skaičius viloje – registracija iki{" "}
-            <strong>[data]</strong>.
-          </p>
-          <h3>Kontaktai: </h3>
-          <a href="mailto:kurbonait7@email.com">kurbonait7@email.com</a>
-          <p style={{ margin: 4 }}>arba</p>
-          <a href="mailto:tyla.ugnius@email.com">tyla.ugnius@email.com</a>
-        </section>
+        <AdditionalSection />
 
         {/* 7) NUOTRAUKOS */}
         <PhotosSection />
