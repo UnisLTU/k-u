@@ -1,5 +1,3 @@
-import FoodForm from "./FoodForm";
-
 export default function AdditionalSection() {
   return (
     <section id="extra" className="section">
@@ -9,8 +7,6 @@ export default function AdditionalSection() {
         Apgyvendinimas: ribotas kambarių skaičius viloje – registracija iki{" "}
         <strong>[data]</strong>.
       </p>
-      <h3>Prašome užpildyti šią formą:</h3>
-      <FoodForm />
 
       <h3>Kontaktai: </h3>
       <a href="mailto:kurbonait7@email.com">kurbonait7@email.com</a>

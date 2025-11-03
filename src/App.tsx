@@ -6,6 +6,7 @@ import PhotosSection from "./components/PhotosSection";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import AdditionalSection from "./components/AdditionalSection";
+import FoodForm from "./components/FoodForm";
 
 function useRevealOnLoad() {
   useEffect(() => {
@@ -164,6 +165,9 @@ function App() {
             Jei turite alergijų ar specialių pageidavimų – parašykite mums
             (kontaktai žemiau).
           </p>
+
+          <h3>Prašome užpildyti šią formą:</h3>
+          <FoodForm />
         </section>
 
         {/* 5) DOVANOS */}
