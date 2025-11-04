@@ -11,6 +11,8 @@ export default function FoodForm() {
       lastName: "",
       food: "",
       date: new Date(Date.now()),
+      alergies: "",
+      accommodationNeeded: false,
     },
   ]);
 
@@ -25,6 +27,8 @@ export default function FoodForm() {
         lastName: "",
         food: "",
         date: new Date(Date.now()),
+        alergies: "",
+        accommodationNeeded: false,
       },
     ]);
   };
@@ -33,7 +37,7 @@ export default function FoodForm() {
     setPeople(people.filter((p) => p.id !== id));
   };
 
-  const updateField = (id: number, field: string, value: string) => {
+  const updateField = (id: number, field: string, value: string | boolean) => {
     setPeople(people.map((p) => (p.id === id ? { ...p, [field]: value } : p)));
   };
 
@@ -49,6 +53,8 @@ export default function FoodForm() {
           food: person.food,
           createdAt: serverTimestamp(),
           date: person.date.toISOString(),
+          alergies: person.alergies,
+          accommodationNeeded: person.accommodationNeeded,
         });
       }
 
@@ -63,6 +69,8 @@ export default function FoodForm() {
           lastName: "",
           food: "",
           date: new Date(),
+          alergies: "",
+          accommodationNeeded: false,
         },
       ]);
     } catch (error) {
@@ -119,6 +127,38 @@ export default function FoodForm() {
               </select>
             </div>
 
+            <div className="input-group">
+              <label>Alergijos</label>
+              <input
+                type="text"
+                value={person.alergies}
+                onChange={(e) =>
+                  updateField(person.id, "alergies", e.target.value)
+                }
+                placeholder="Įrašykite alergijas"
+              />
+            </div>
+
+            <div
+              className="input-group checkbox-group"
+              style={{ alignItems: "flex-start" }}
+            >
+              <label>
+                <input
+                  type="checkbox"
+                  checked={person.accommodationNeeded}
+                  onChange={(e) =>
+                    updateField(
+                      person.id,
+                      "accommodationNeeded",
+                      e.target.checked
+                    )
+                  }
+                />
+                Ar reikalinga nakvynė?
+              </label>
+            </div>
+
             <button
               type="button"
               className="remove-btn"
@@ -132,13 +172,15 @@ export default function FoodForm() {
 
         <div className="actions">
           <button type="button" onClick={addPerson} className="add-btn">
-            + Pridėti dalyvį
+            + Pridėti svečią
           </button>
           <button type="submit" className="submit-btn">
             Pateikti
           </button>
         </div>
       </form>
+
+      <p>Vakarienės ir nakvynės pasirinkimo lauksime iki [data]</p>
     </div>
   );
 }

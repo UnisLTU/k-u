@@ -84,21 +84,21 @@ function App() {
         <section id="home" className="section home-section">
           <h2>Pradžia</h2>
           <p>
-            Sveiki atvykę į mūsų vestuvių svetainę! ❤️ Čia rasite visą
-            svarbiausią informaciją apie mūsų šventę.
+            Sveiki atvykę į mūsų vestuvių svetainę! Čia rasite visą svarbiausią
+            informaciją apie mūsų šventę.
           </p>
         </section>
 
         {/* 2) ŠVENTĖS VIETA */}
-        <section id="venue" className="section venue-section">
-          <h2>Šventės vieta</h2>
+        <section id="ceremony" className="section venue-section">
+          <h2>Ceremonijos vieta</h2>
 
           <div className="venue-grid">
             <article className="card">
               <h3>Bažnyčia</h3>
               <p style={{ minHeight: 50 }}>
                 Ceremonija vyks <strong>Surdegio bažnyčioje</strong>, pradžia
-                12:00. Atvykite keliomis minutėmis anksčiau 🙏
+                16:00. Atvykite keliomis minutėmis anksčiau
               </p>
               <img
                 className="venue-photo"
@@ -107,14 +107,20 @@ function App() {
               />
               <div className="map-embed">
                 <iframe
-                  title="Bažnyčia (žemėlapis)"
-                  src="https://www.google.com/maps?q=Vilniaus+Katedra&output=embed"
+                  title="Surdegio bažnyčia"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1326.834921877609!2d24.809532213015707!3d55.668513995514836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e7dab8a93bd68f%3A0xba88d8d20e7ebe6!2zU3VyZGVnaW8gxaB2xI0uIE1lcmdlbMSXcyBNYXJpam9zIMSXbWltbyDEryBkYW5nxbMgYmHFvm55xI1pYQ!5e1!3m2!1slt!2slt!4v1762246073884!5m2!1slt!2slt"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                />
+                ></iframe>
               </div>
             </article>
+          </div>
+        </section>
 
+        <section id="venue" className="section venue-section">
+          <h2>Šventės vieta</h2>
+
+          <div className="venue-grid">
             <article className="card">
               <h3>Barono vila</h3>
               <p style={{ minHeight: 50 }}>
@@ -128,11 +134,10 @@ function App() {
               />
               <div className="map-embed">
                 <iframe
-                  title="Barono vila (žemėlapis)"
-                  src="https://www.google.com/maps?q=Barono+Vila&output=embed"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23028.32249829917!2d25.368010075266156!3d55.650011849778124!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e7fcb30c44a3d7%3A0x4a173bd4c927fbd2!2sBARONO%20VILA%2C%20sodyba!5e1!3m2!1slt!2slt!4v1762246218406!5m2!1slt!2slt"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                />
+                ></iframe>
               </div>
             </article>
           </div>
@@ -156,12 +161,11 @@ function App() {
 
         {/* 4) VAKARIENĖ */}
         <section id="dinner" className="section">
-          <h2>Vakarienė</h2>
+          <h2>Vakarienė ir Nakvynė</h2>
           <p style={{ marginBottom: 4 }}>18:00 – Užkandžiai ir sveikinimai</p>
           <p style={{ marginBottom: 4 }}>
             19:00 – Pagrindinis patiekalas (mėsos / žuvies / vegetariškas)
           </p>
-          <p style={{ marginBottom: 4 }}>21:00 – Desertas ir tortas</p>
 
           <p style={{ marginBottom: 4 }}>
             Jei turite alergijų ar specialių pageidavimų – parašykite mums
@@ -178,7 +182,7 @@ function App() {
           <p>
             Didžiausia dovana – jūsų buvimas kartu su mumis. Jei norite
             prisidėti, mums labiausiai praverstų parama <em>medaus mėnesiui</em>
-            . Gėlių prašome nenešti 🌿
+            . Gėles palikime žydėti laukuose.
           </p>
         </section>
 

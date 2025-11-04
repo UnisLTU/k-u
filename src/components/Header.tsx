@@ -145,6 +145,11 @@ export default function Header() {
                 </a>
               </li>
               <li>
+                <a href="#ceremony" onClick={onNavClick}>
+                  Ceremonijos vieta
+                </a>
+              </li>
+              <li>
                 <a href="#venue" onClick={onNavClick}>
                   Šventės vieta
                 </a>
@@ -156,7 +161,7 @@ export default function Header() {
               </li>
               <li>
                 <a href="#dinner" onClick={onNavClick}>
-                  Vakarienė
+                  Vakarienė ir Nakvynė
                 </a>
               </li>
               <li>
