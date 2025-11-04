@@ -50,6 +50,8 @@ function useRevealOnLoad() {
   }, []);
 }
 
+console.log(import.meta.env.VITE_FIREBASE_API_KEY);
+
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
