@@ -96,25 +96,35 @@ function App() {
           <div className="venue-grid">
             <article className="card">
               <h3>Bažnyčia</h3>
-              <p style={{ minHeight: 50 }}>
+              <p style={{ marginBottom: 20 }}>
                 Ceremonija vyks <strong>Surdegio bažnyčioje</strong>, pradžia
                 16:00. Atvykite keliomis minutėmis anksčiau
               </p>
-              <img
-                className="venue-photo"
-                src="SurdegioBaznycia.jpg"
-                alt="Barono vilos nuotrauka"
-              />
-              <div className="map-embed">
-                <iframe
-                  title="Surdegio bažnyčia"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1326.834921877609!2d24.809532213015707!3d55.668513995514836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e7dab8a93bd68f%3A0xba88d8d20e7ebe6!2zU3VyZGVnaW8gxaB2xI0uIE1lcmdlbMSXcyBNYXJpam9zIMSXbWltbyDEryBkYW5nxbMgYmHFvm55xI1pYQ!5e1!3m2!1slt!2slt!4v1762246073884!5m2!1slt!2slt"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+              <div className="row">
+                <img
+                  className="venue-photo"
+                  src="SurdegioBaznycia.jpg"
+                  alt="Barono vilos nuotrauka"
+                />
+                <div className="map-embed">
+                  <iframe
+                    title="Surdegio bažnyčia"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1326.834921877609!2d24.809532213015707!3d55.668513995514836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e7dab8a93bd68f%3A0xba88d8d20e7ebe6!2zU3VyZGVnaW8gxaB2xI0uIE1lcmdlbMSXcyBNYXJpam9zIMSXbWltbyDEryBkYW5nxbMgYmHFvm55xI1pYQ!5e1!3m2!1slt!2slt!4v1762246073884!5m2!1slt!2slt"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
               </div>
             </article>
           </div>
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Surdegio+bažnyčia"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="directions-btn"
+          >
+            Gauti nuorodas
+          </a>
         </section>
 
         <section id="venue" className="section venue-section">
@@ -123,24 +133,34 @@ function App() {
           <div className="venue-grid">
             <article className="card">
               <h3>Barono vila</h3>
-              <p style={{ minHeight: 50 }}>
+              <p style={{ marginBottom: 20 }}>
                 Po ceremonijos susitiksime Barono viloje. Jūsų lauks jauki
                 aplinka ir daug erdvės sukurti gražiausius atsiminimus!
               </p>
-              <img
-                className="venue-photo"
-                src="BaronoVila.jpg"
-                alt="Barono vilos nuotrauka"
-              />
-              <div className="map-embed">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23028.32249829917!2d25.368010075266156!3d55.650011849778124!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e7fcb30c44a3d7%3A0x4a173bd4c927fbd2!2sBARONO%20VILA%2C%20sodyba!5e1!3m2!1slt!2slt!4v1762246218406!5m2!1slt!2slt"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+              <div className="row">
+                <img
+                  className="venue-photo"
+                  src="BaronoVila.jpg"
+                  alt="Barono vilos nuotrauka"
+                />
+                <div className="map-embed">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23028.32249829917!2d25.368010075266156!3d55.650011849778124!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e7fcb30c44a3d7%3A0x4a173bd4c927fbd2!2sBARONO%20VILA%2C%20sodyba!5e1!3m2!1slt!2slt!4v1762246218406!5m2!1slt!2slt"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
               </div>
             </article>
           </div>
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Barono+vila"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="directions-btn"
+          >
+            Gauti nuorodas
+          </a>
         </section>
 
         {/* 3) DRESS KODAS */}
