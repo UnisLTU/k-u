@@ -3,7 +3,6 @@ name: Deploy static content to Pages
 on:
   push:
     branches: ["main"]
-
   workflow_dispatch:
 
 permissions:
@@ -22,7 +21,20 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Create .env.production file
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: lts/*
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      # ⬇️ write Vite envs AFTER checkout, BEFORE build
+      - name: Create .env.production
         run: |
           cat > .env.production << 'EOF'
           VITE_FIREBASE_API_KEY=${{ secrets.VITE_FIREBASE_API_KEY }}
@@ -32,23 +44,28 @@ jobs:
           VITE_FIREBASE_MESSAGING_SENDER_ID=${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
           VITE_FIREBASE_APP_ID=${{ secrets.VITE_FIREBASE_APP_ID }}
           EOF
-      - name: Checkout
-        uses: actions/checkout@v5
-      - name: Set up Node
-        uses: actions/setup-node@v5
-        with:
-          node-version: lts/*
-          cache: "npm"
-      - name: Install dependencies
-        run: npm ci
+
+      # Optional: verify file exists (will mask secrets in logs)
+      - name: Debug env file (redacted)
+        run: |
+          echo "Has .env.production? $(test -f .env.production && echo yes || echo no)"
+          grep -o '^VITE_[A-Z_]\+=' .env.production | sed 's/$/***redacted***/'
+
       - name: Build
         run: npm run build
+
+      # SPA fallback (React Router)
+      - name: Add 404 fallback
+        run: cp dist/index.html dist/404.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: "./dist"
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
