@@ -100,7 +100,7 @@ function App() {
               </p>
               <img
                 className="venue-photo"
-                src="SurdegioBaznycia.jpg"
+                src="../src/assets/SurdegioBaznycia.jpg"
                 alt="Barono vilos nuotrauka"
               />
               <div className="map-embed">
@@ -121,7 +121,7 @@ function App() {
               </p>
               <img
                 className="venue-photo"
-                src="BaronoVila.jpg"
+                src="../src/assets/BaronoVila.jpg"
                 alt="Barono vilos nuotrauka"
               />
               <div className="map-embed">

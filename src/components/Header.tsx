@@ -114,7 +114,7 @@ export default function Header() {
       >
         <div className="header-content">
           <img
-            src="/image.png"
+            src="image.png"
             alt="logo"
             className="header-logo"
             style={{
