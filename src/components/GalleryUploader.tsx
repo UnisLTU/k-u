@@ -186,9 +186,8 @@ export default function GalleryUploader() {
       >
         <div className="gu-dropzone-inner">
           <p className="gu-drop-title">
-            Įmeskite nuotraukas ar vaizdo įrašus čia
+            Įkelti nuotraukas ar vaizdo įrašus galite čia
           </p>
-          <p className="gu-drop-or">arba</p>
           <button
             type="button"
             className="btn btn-primary"
@@ -197,7 +196,7 @@ export default function GalleryUploader() {
               inputRef.current?.click();
             }}
           >
-            Naršykite failus
+            Įkelti
           </button>
           <input
             ref={inputRef}

@@ -4,12 +4,13 @@ import "./HamburgerMenu.css";
 
 const MENU_ITEMS = [
   { href: "#home", label: "Pradžia" },
+  { href: "#ceremony", label: "Ceremonija" },
   { href: "#venue", label: "Šventės vieta" },
   { href: "#dresscode", label: "Dress kodas" },
-  { href: "#dinner", label: "Vakarienė" },
+  { href: "#dinner", label: "Vakarienė ir nakvynė" },
   { href: "#gifts", label: "Dovanos" },
   { href: "#extra", label: "Papildomai" },
-  { href: "#photos", label: "Nuotraukos" },
+  { href: "#photos", label: "Šventės akimirkos" },
 ];
 
 const BREAKPOINT = 600;

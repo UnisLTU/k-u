@@ -60,7 +60,7 @@ const responsive = {
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 3,
+    items: 5,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -95,15 +95,17 @@ function App() {
 
           <div className="venue-grid">
             <article className="card">
-              <h3>Bažnyčia</h3>
               <p style={{ marginBottom: 20 }}>
-                Ceremonija vyks <strong>Surdegio bažnyčioje</strong>, pradžia
-                16:00. Atvykite keliomis minutėmis anksčiau
+                Ceremonija vyks{" "}
+                <strong>
+                  Surdegio Švč. Mergelės Marijos ėmimo į dangų bažnyčioje
+                </strong>
+                , pradžia 16:00. Atvykite keliomis minutėmis anksčiau
               </p>
               <div className="row">
                 <img
                   className="venue-photo"
-                  src="SurdegioBaznycia.jpg"
+                  src="SurdegioBaznycia.png"
                   alt="Barono vilos nuotrauka"
                 />
                 <div className="map-embed">
@@ -123,7 +125,7 @@ function App() {
             rel="noopener noreferrer"
             className="directions-btn"
           >
-            Gauti nuorodas
+            Atidaryti žemėlapyje
           </a>
         </section>
 
@@ -159,7 +161,7 @@ function App() {
             rel="noopener noreferrer"
             className="directions-btn"
           >
-            Gauti nuorodas
+            Atidaryti žemėlapyje
           </a>
         </section>
 
@@ -167,32 +169,80 @@ function App() {
         <section id="dresscode" className="section">
           <h2>Dress kodas</h2>
           <p style={{ marginBottom: 20 }}>
-            Neprašyme Jūsų nieko įmantraus, tik bendros spalvų paletės. Labai
+            Neprašysime Jūsų nieko įmantraus, tik bendros spalvų paletės. Labai
             pamalonintumėte mus, savo aprangai pasirinkę rudos spalvų gamos
             drabužius. Keletas nuotraukų įkvėpimui:
           </p>
           <Carousel responsive={responsive} className="carousel">
-            <div className="carousel-item">Item 1</div>
-            <div className="carousel-item">Item 2</div>
-            <div className="carousel-item">Item 3</div>
-            <div className="carousel-item">Item 4</div>
+            <div className="carousel-item">
+              <img
+                src="outfit1.jpeg"
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                alt="outfit1"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="outfit2.jpeg"
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                alt="outfit2"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="outfit3.jpeg"
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                alt="outfit3"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="outfit4.jpeg"
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                alt="outfit4"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="outfit5.jpeg"
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                alt="outfit5"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="outfit6.jpeg"
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                alt="outfit6"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="outfit7.jpeg"
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                alt="outfit7"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="outfit8.jpeg"
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                alt="outfit8"
+              />
+            </div>
           </Carousel>
         </section>
 
         {/* 4) VAKARIENĖ */}
         <section id="dinner" className="section">
-          <h2>Vakarienė ir Nakvynė</h2>
+          <h2>Vakarienė ir nakvynė</h2>
           <p style={{ marginBottom: 4 }}>18:00 – Užkandžiai ir sveikinimai</p>
-          <p style={{ marginBottom: 4 }}>
-            19:00 – Pagrindinis patiekalas (mėsos / žuvies / vegetariškas)
-          </p>
+          <p style={{ marginBottom: 4 }}>19:00 – Vakarienė</p>
 
           <p style={{ marginBottom: 4 }}>
-            Jei turite alergijų ar specialių pageidavimų – parašykite mums
-            (kontaktai žemiau).
+            Jei turite alergijų ar specialių pageidavimų – nurodykite formoje
+            žemiau.
           </p>
-
-          <h3>Prašome užpildyti šią formą:</h3>
           <FoodForm />
         </section>
 

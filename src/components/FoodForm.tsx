@@ -11,8 +11,9 @@ export default function FoodForm() {
       lastName: "",
       food: "",
       date: new Date(Date.now()),
-      alergies: "",
-      accommodationNeeded: false,
+      comment: "",
+      accommodationNeeded: true,
+      numberOfNight: 1,
     },
   ]);
 
@@ -27,8 +28,9 @@ export default function FoodForm() {
         lastName: "",
         food: "",
         date: new Date(Date.now()),
-        alergies: "",
-        accommodationNeeded: false,
+        comment: "",
+        accommodationNeeded: true,
+        numberOfNight: 1,
       },
     ]);
   };
@@ -37,11 +39,17 @@ export default function FoodForm() {
     setPeople(people.filter((p) => p.id !== id));
   };
 
-  const updateField = (id: number, field: string, value: string | boolean) => {
-    setPeople(people.map((p) => (p.id === id ? { ...p, [field]: value } : p)));
+  const updateField = (
+    id: number,
+    field: keyof (typeof people)[number],
+    value: string | boolean | number | Date
+  ) => {
+    setPeople((prev) =>
+      prev.map((p) => (p.id === id ? { ...p, [field]: value } : p))
+    );
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
@@ -53,7 +61,7 @@ export default function FoodForm() {
           food: person.food,
           createdAt: serverTimestamp(),
           date: person.date.toISOString(),
-          alergies: person.alergies,
+          comment: person.comment,
           accommodationNeeded: person.accommodationNeeded,
         });
       }
@@ -69,8 +77,9 @@ export default function FoodForm() {
           lastName: "",
           food: "",
           date: new Date(),
-          alergies: "",
+          comment: "",
           accommodationNeeded: false,
+          numberOfNight: 0,
         },
       ]);
     } catch (error) {
@@ -82,7 +91,7 @@ export default function FoodForm() {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
-        {people.map((person) => (
+        {people.map((person, index) => (
           <div key={person.id} className="person-row">
             <div className="input-group">
               <label>Vardas</label>
@@ -128,45 +137,97 @@ export default function FoodForm() {
             </div>
 
             <div className="input-group">
-              <label>Alergijos</label>
+              <label>Komentaras</label>
               <input
                 type="text"
-                value={person.alergies}
+                value={person.comment}
                 onChange={(e) =>
-                  updateField(person.id, "alergies", e.target.value)
+                  updateField(person.id, "comment", e.target.value)
                 }
-                placeholder="Įrašykite alergijas"
+                placeholder="Įrašykite komentarą"
               />
             </div>
-
             <div
-              className="input-group checkbox-group"
-              style={{ alignItems: "flex-start" }}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                flex: 1,
+                justifyContent: "space-between",
+                alignItems: "flex-start",
+              }}
             >
-              <label>
-                <input
-                  type="checkbox"
-                  checked={person.accommodationNeeded}
-                  onChange={(e) =>
-                    updateField(
-                      person.id,
-                      "accommodationNeeded",
-                      e.target.checked
-                    )
-                  }
-                />
-                Ar reikalinga nakvynė?
-              </label>
-            </div>
+              <div>
+                <div
+                  className="input-group checkbox-group"
+                  style={{ alignItems: "flex-start" }}
+                >
+                  <label>Ar reikalinga nakvynė?</label>
+                  <label>
+                    <input
+                      type="radio"
+                      checked={person.accommodationNeeded}
+                      onChange={() => {
+                        updateField(person.id, "accommodationNeeded", true);
+                        updateField(person.id, "numberOfNight", 1);
+                      }}
+                    />
+                    Taip
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      checked={!person.accommodationNeeded}
+                      onChange={() => {
+                        updateField(person.id, "accommodationNeeded", false);
+                        updateField(person.id, "numberOfNight", 0);
+                      }}
+                    />
+                    Ne
+                  </label>
+                </div>
+              </div>
+              {person.accommodationNeeded && (
+                <div>
+                  <div
+                    className="input-group checkbox-group"
+                    style={{ alignItems: "flex-start" }}
+                  >
+                    <label>Naktų skaičius</label>
 
-            <button
-              type="button"
-              className="remove-btn"
-              onClick={() => removePerson(person.id)}
-              disabled={people.length === 1}
-            >
-              ✕
-            </button>
+                    <label style={{ marginRight: 4 }}>
+                      <input
+                        type="radio"
+                        checked={person.numberOfNight === 1}
+                        onChange={() =>
+                          updateField(person.id, "numberOfNight", 1)
+                        }
+                      />
+                      1 naktis
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        checked={person.numberOfNight === 2}
+                        onChange={() =>
+                          updateField(person.id, "numberOfNight", 2)
+                        }
+                      />
+                      2 naktys
+                    </label>
+                  </div>
+                </div>
+              )}
+            </div>
+            {!!index && (
+              <button
+                type="button"
+                className="remove-btn"
+                onClick={() => removePerson(person.id)}
+                disabled={people.length === 1}
+              >
+                Ištrinti papildomą svečią
+              </button>
+            )}
           </div>
         ))}
 
@@ -180,7 +241,9 @@ export default function FoodForm() {
         </div>
       </form>
 
-      <p>Vakarienės ir nakvynės pasirinkimo lauksime iki [data]</p>
+      <p style={{ marginTop: 12 }}>
+        Vakarienės ir nakvynės pasirinkimo lauksime iki [data]
+      </p>
     </div>
   );
 }

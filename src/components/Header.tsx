@@ -176,7 +176,7 @@ export default function Header() {
               </li>
               <li>
                 <a href="#photos" onClick={onNavClick}>
-                  Nuotraukos
+                  Šventės akimirkos
                 </a>
               </li>
             </ul>
