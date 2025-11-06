@@ -151,7 +151,7 @@ export default function FoodForm() {
               style={{
                 display: "flex",
                 flexDirection: "row",
-                flex: 1,
+
                 justifyContent: "space-between",
                 alignItems: "flex-start",
               }}
