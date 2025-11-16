@@ -145,6 +145,11 @@ export default function Header() {
                 </a>
               </li>
               <li>
+                <a href="#plan" onClick={onNavClick}>
+                  Dienos planas
+                </a>
+              </li>
+              <li>
                 <a href="#ceremony" onClick={onNavClick}>
                   Ceremonijos vieta
                 </a>
@@ -156,7 +161,7 @@ export default function Header() {
               </li>
               <li>
                 <a href="#dresscode" onClick={onNavClick}>
-                  Dress kodas
+                  Aprangos kodas
                 </a>
               </li>
               <li>

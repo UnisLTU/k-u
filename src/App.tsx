@@ -89,6 +89,34 @@ function App() {
           </p>
         </section>
 
+        <section id="plan" className="section home-section">
+          <h2>Dienos planas</h2>
+          <p style={{ fontWeight: 700 }}>15:30</p>
+          <p>
+            Santuokos sakramentas – Surdegio Švč. Mergelės Marijos ėmimo į dangų
+            bažnyčia
+          </p>
+          <br />
+          <p style={{ fontWeight: 700 }}>16:00</p>
+          <p>Šampano taurė prie bažnyčios</p>
+          <br />
+          <p style={{ fontWeight: 700 }}>17:30</p>
+          <p>Svečių atvykimas į šventės vietą – Barono vila</p>
+          <br />
+          <p style={{ fontWeight: 700 }}>18:00</p>
+          <p>Sveikinimai</p>
+          <br />
+          <p style={{ fontWeight: 700 }}>19:00</p>
+          <p>Šventinė vakarienė & vakarėlis</p>
+          <br />
+          <p style={{ fontWeight: 700 }}>Po šventės</p>
+          <p>
+            Barono vila rezervuota dviem naktims – kviečiame likti dar vienai
+            dienai pokalbiams, poilsiui ir pasimėgavimui nuostabia gamta bei
+            privačiu tvenkiniu.
+          </p>
+        </section>
+
         {/* 2) ŠVENTĖS VIETA */}
         <section id="ceremony" className="section venue-section">
           <h2>Ceremonijos vieta</h2>
@@ -167,7 +195,7 @@ function App() {
 
         {/* 3) DRESS KODAS */}
         <section id="dresscode" className="section">
-          <h2>Dress kodas</h2>
+          <h2>Aprangos kodas</h2>
           <p style={{ marginBottom: 20 }}>
             Neprašysime Jūsų nieko įmantraus, tik bendros spalvų paletės. Labai
             pamalonintumėte mus, savo aprangai pasirinkę rudos spalvų gamos
@@ -236,14 +264,13 @@ function App() {
         {/* 4) VAKARIENĖ */}
         <section id="dinner" className="section">
           <h2>Vakarienė ir nakvynė</h2>
-          <p style={{ marginBottom: 4 }}>18:00 – Užkandžiai ir sveikinimai</p>
-          <p style={{ marginBottom: 4 }}>19:00 – Vakarienė</p>
-
           <p style={{ marginBottom: 4 }}>
             Jei turite alergijų ar specialių pageidavimų – nurodykite formoje
             žemiau.
           </p>
           <FoodForm />
+
+          <p></p>
         </section>
 
         {/* 5) DOVANOS */}

@@ -4,9 +4,10 @@ import "./HamburgerMenu.css";
 
 const MENU_ITEMS = [
   { href: "#home", label: "Pradžia" },
+  { href: "#plan", label: "Dienos planas" },
   { href: "#ceremony", label: "Ceremonija" },
   { href: "#venue", label: "Šventės vieta" },
-  { href: "#dresscode", label: "Dress kodas" },
+  { href: "#dresscode", label: "Aprangos kodas" },
   { href: "#dinner", label: "Vakarienė ir nakvynė" },
   { href: "#gifts", label: "Dovanos" },
   { href: "#extra", label: "Papildomai" },

@@ -7,6 +7,7 @@ body,
   padding: 0px;
   font-family: 'Arsenal', sans-serif;
   color: var(--secondary-color);
+  background-color: #c4b093;
 }
 
 html {
@@ -64,10 +65,13 @@ div {
 .background-main {
   background-color: var(--primary-color);
   flex-direction: column;
+  
 }
 
 .main {
-
+  max-width: 1440px;
+  justify-content: center;
+  margin: 0 auto;
   padding: 20,
   width: 100vw;
 }
@@ -213,6 +217,9 @@ div {
 .header,
 .hm {
   animation: fadeDownIn 500ms ease both;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 @keyframes fadeDownIn {
   from { opacity: 0; transform: translateY(-8px); }
