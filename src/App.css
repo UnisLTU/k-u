@@ -219,7 +219,6 @@ div {
   animation: fadeDownIn 500ms ease both;
   max-width: 1360px;
   margin: 0 auto;
-  padding: 0 40px;
 }
 @keyframes fadeDownIn {
   from { opacity: 0; transform: translateY(-8px); }
@@ -230,7 +229,11 @@ div {
 @media (prefers-reduced-motion: reduce) {
   .reveal-init { opacity: 1; transform: none; }
   .reveal-in { transition: none; }
-  .header, .hm { animation: none; }
+  .header, .hm { animation: none; padding: 0 40px; }
+}
+
+@media (min-width: 1400px) {
+  .header, .hm { animation: none; padding: 0 40px; }
 }
 
 @media (max-width: 768px) {

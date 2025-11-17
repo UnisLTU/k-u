@@ -137,6 +137,7 @@
   .header {
     justify-content: center;
     padding-bottom: 0px;
+    position: relative;
   }
   .header.is-hidden {
     transform: translateY(-100%);

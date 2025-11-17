@@ -6,7 +6,7 @@ import PhotosSection from "./components/PhotosSection";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import AdditionalSection from "./components/AdditionalSection";
-import FoodForm from "./components/FoodForm";
+// import FoodForm from "./components/FoodForm";
 
 function useRevealOnLoad() {
   useEffect(() => {
@@ -124,11 +124,14 @@ function App() {
           <div className="venue-grid">
             <article className="card">
               <p style={{ marginBottom: 20 }}>
-                Ceremonija vyks{" "}
+                Jūsų patogumui žemiau rasite nuorodas žemėlapyje atvesiančias
+                tiksliai į{" "}
                 <strong>
-                  Surdegio Švč. Mergelės Marijos ėmimo į dangų bažnyčioje
+                  Surdegio Švč. Mergėlės Marijos ėmimo į dangų bažnyčią.{" "}
                 </strong>
-                , pradžia 16:00. Atvykite keliomis minutėmis anksčiau
+                Kaip ir minėjome dienos plane - ceremonijos pradžia{" "}
+                <strong> 15:30. </strong>
+                Lauksime Jūsų keliomis minutėmis ankščiau.
               </p>
               <div className="row">
                 <img
@@ -165,7 +168,8 @@ function App() {
               <h3>Barono vila</h3>
               <p style={{ marginBottom: 20 }}>
                 Po ceremonijos susitiksime Barono viloje. Jūsų lauks jauki
-                aplinka ir daug erdvės sukurti gražiausius atsiminimus!
+                aplinka ir daug erdvės sukurti gražiausius atsiminimus! Žemiau
+                rasite nuorodas padėsiančias atvykti į šventės vietą.
               </p>
               <div className="row">
                 <img
@@ -182,6 +186,11 @@ function App() {
                 </div>
               </div>
             </article>
+            <h3>Vietos automobiliams</h3>
+            <p style={{ marginBottom: 20, marginTop: 20 }}>
+              Vilos teritorijoje bus užtektinai vietos Jūsų transporto
+              priemonėms, taip pat ir stotelė elektromobiliams.
+            </p>
           </div>
           <a
             href="https://www.google.com/maps/dir/?api=1&destination=Barono+vila"
@@ -202,6 +211,13 @@ function App() {
             drabužius. Keletas nuotraukų įkvėpimui:
           </p>
           <Carousel responsive={responsive} className="carousel">
+            <div className="carousel-item">
+              <img
+                src="outfit6.jpeg"
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                alt="outfit6"
+              />
+            </div>
             <div className="carousel-item">
               <img
                 src="outfit1.jpeg"
@@ -237,13 +253,7 @@ function App() {
                 alt="outfit5"
               />
             </div>
-            <div className="carousel-item">
-              <img
-                src="outfit6.jpeg"
-                style={{ objectFit: "cover", width: "100%", height: "100%" }}
-                alt="outfit6"
-              />
-            </div>
+
             <div className="carousel-item">
               <img
                 src="outfit7.jpeg"
@@ -265,10 +275,13 @@ function App() {
         <section id="dinner" className="section">
           <h2>Vakarienė ir nakvynė</h2>
           <p style={{ marginBottom: 4 }}>
+            Maisto pasirinkimai bus pateikti nuo gegužės 1 dienos.
+          </p>
+          {/* <p style={{ marginBottom: 4 }}>
             Jei turite alergijų ar specialių pageidavimų – nurodykite formoje
             žemiau.
           </p>
-          <FoodForm />
+          <FoodForm /> */}
 
           <p></p>
         </section>
