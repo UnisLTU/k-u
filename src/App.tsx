@@ -290,9 +290,9 @@ function App() {
         <section id="gifts" className="section">
           <h2>Dovanos</h2>
           <p>
-            Didžiausia dovana – jūsų buvimas kartu su mumis. Jei norite
-            prisidėti, mums labiausiai praverstų parama <em>medaus mėnesiui</em>
-            . Gėles palikime žydėti laukuose.
+            Didžiausia dovana - jūsų buvimas kartu su mumis. Jei galvojate apie
+            dovaną, mums labiausiai praverstų indėlis į medaus mėnesio kelionę.
+            Gėles palikime žydėti laukuose.
           </p>
         </section>
 
