@@ -271,9 +271,20 @@ function App() {
           </Carousel>
         </section>
 
+        <section id="stay" className="section">
+          <h2>Dalyvavimas ir nakvynė</h2>
+          <p style={{ marginBottom: 4 }}>
+            Prašome Jūsų žemiau esančioje formoje užpildyti informaciją apie
+            dalyvavimą šventėje ir poreikį nakvynei.
+          </p>
+          <a href="https://www.google.com">Užpildyti formą</a>
+
+          <p></p>
+        </section>
+
         {/* 4) VAKARIENĖ */}
         <section id="dinner" className="section">
-          <h2>Vakarienė ir nakvynė</h2>
+          <h2>Vakarienė</h2>
           <p style={{ marginBottom: 4 }}>
             Maisto pasirinkimai bus pateikti nuo gegužės 1 dienos.
           </p>

@@ -101,11 +101,17 @@
 .menu ul {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 48px;
   margin: 0;
   padding: 0;
+  display: flex; /* keep flex */
+  flex-wrap: wrap; /* allow wrapping to multiple lines */
+  justify-content: center; /* center each line */
+  column-gap: 28px; /* horizontal gap */
+  row-gap: 12px; /* vertical gap between the two lines */
 }
 
 .menu li {

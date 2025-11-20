@@ -165,8 +165,13 @@ export default function Header() {
                 </a>
               </li>
               <li>
+                <a href="#stay" onClick={onNavClick}>
+                  Dalyvavimas ir nakvynė
+                </a>
+              </li>
+              <li>
                 <a href="#dinner" onClick={onNavClick}>
-                  Vakarienė ir Nakvynė
+                  Vakarienė
                 </a>
               </li>
               <li>

@@ -18,7 +18,7 @@ a{
 }
 
 .section {
-  padding: 40px 16px;
+  padding: 32px 16px;
   text-align: center;
 }
 
@@ -27,8 +27,8 @@ a{
 }
 
 .section h2 {
+  margin: 12px;
   font-size: 2.2rem;
-  margin-bottom: 20px;
 }
 
 .section p {
@@ -72,7 +72,7 @@ div {
   max-width: 1440px;
   justify-content: center;
   margin: 0 auto;
-  padding: 20,
+  padding: 20px,
   width: 100vw;
 }
 
