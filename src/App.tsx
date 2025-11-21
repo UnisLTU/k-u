@@ -277,7 +277,7 @@ function App() {
             Prašome Jūsų žemiau esančioje formoje užpildyti informaciją apie
             dalyvavimą šventėje ir poreikį nakvynei.
           </p>
-          <a href="https://www.google.com">Užpildyti formą</a>
+          <a href="https://forms.gle/yALx5gns5KNUQQG5A">Užpildyti formą</a>
 
           <p></p>
         </section>
