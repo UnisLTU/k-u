@@ -73,8 +73,9 @@ const responsive = {
 };
 
 function App() {
+  const isLive = false;
   useRevealOnLoad();
-  return (
+  return isLive ? (
     <div className="main background-main">
       <Header />
       <HamburgerMenu />
@@ -313,6 +314,18 @@ function App() {
         {/* 7) NUOTRAUKOS */}
         <PhotosSection />
       </main>
+    </div>
+  ) : (
+    <div
+      style={{
+        width: "100%",
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <h1>Soon...</h1>
     </div>
   );
 }
