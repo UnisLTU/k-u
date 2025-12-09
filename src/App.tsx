@@ -72,6 +72,13 @@ const responsive = {
   },
 };
 
+const target = new Date(2026, 6, 4);
+const today = new Date();
+const msPerDay = 24 * 60 * 60 * 1000;
+const daysTill = Math.ceil(
+  (target.setHours(0, 0, 0, 0) - today.setHours(0, 0, 0, 0)) / msPerDay
+);
+
 function App() {
   const isLive = false;
   useRevealOnLoad();
@@ -81,6 +88,30 @@ function App() {
       <HamburgerMenu />
 
       <main className="content">
+        <section
+          id="intro"
+          className="section intro-section"
+          style={{ height: "90vh" }}
+        >
+          <img
+            src="image.png"
+            alt="logo"
+            className="header-logo"
+            style={{ width: 360 }}
+          />
+          <div className="header-text">
+            <h1>Kornelija ir Ugnius</h1>
+            <div className="subtext">
+              <h3>2026, Liepos 4 d.</h3>
+              {daysTill > 0 && (
+                <>
+                  <span className="dot">•</span>
+                  <h3>{`Liko ${daysTill} dien${daysTill > 1 ? "os" : "a"}`}</h3>
+                </>
+              )}
+            </div>
+          </div>
+        </section>
         {/* 1) PRADŽIA */}
         <section id="home" className="section home-section">
           <h2>Pradžia</h2>
@@ -125,7 +156,7 @@ function App() {
           <div className="venue-grid">
             <article className="card">
               <p style={{ marginBottom: 20 }}>
-                Jūsų patogumui žemiau rasite nuorodas žemėlapyje atvesiančias
+                Jūsų patogumui žemiau rasite nuorodas žemėlapyje, atvesiančias
                 tiksliai į{" "}
                 <strong>
                   Surdegio Švč. Mergėlės Marijos ėmimo į dangų bažnyčią.{" "}

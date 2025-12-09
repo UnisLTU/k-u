@@ -141,6 +141,7 @@
 @media (max-width: 600px) {
   /* Auto-hide animation */
   .header {
+    display: none;
     justify-content: center;
     padding-bottom: 0px;
     position: relative;

@@ -246,3 +246,9 @@ div {
   }
 }
 
+@media (min-width: 600px) {
+  #intro {
+    display: none;
+  }
+}
+

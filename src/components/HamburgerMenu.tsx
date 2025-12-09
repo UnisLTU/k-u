@@ -1,11 +1,11 @@
 import React, { useEffect, useId, useRef, useState } from "react";
-import { createPortal } from "react-dom"; // ⬅️ add this
+import { createPortal } from "react-dom";
 import "./HamburgerMenu.css";
 
 const MENU_ITEMS = [
   { href: "#home", label: "Pradžia" },
   { href: "#plan", label: "Dienos planas" },
-  { href: "#ceremony", label: "Ceremonija" },
+  { href: "#ceremony", label: "Ceremonijos vieta" },
   { href: "#venue", label: "Šventės vieta" },
   { href: "#dresscode", label: "Aprangos kodas" },
   { href: "#stay", label: "Dalyvavimas ir nakvynė" },
@@ -16,11 +16,13 @@ const MENU_ITEMS = [
 ];
 
 const BREAKPOINT = 600;
+// Adjust this to match your fixed header / hamburger height
+const HEADER_OFFSET = 80;
 
 export default function MobileHamburger() {
   const [isMobile, setIsMobile] = useState(false);
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false); // ⬅️ for SSR safety
+  const [mounted, setMounted] = useState(false);
 
   const btnRef = useRef<HTMLButtonElement | null>(null);
   const panelRef = useRef<HTMLDivElement | null>(null);
@@ -30,7 +32,7 @@ export default function MobileHamburger() {
 
   useEffect(() => {
     setMounted(true);
-  }, []); // ⬅️ only portal after mount
+  }, []);
 
   // Show only on phones
   useEffect(() => {
@@ -76,8 +78,8 @@ export default function MobileHamburger() {
         btnRef.current?.focus();
       }
       if (e.key === "Tab" && focusables.length) {
-        const first = focusables[0],
-          last = focusables[focusables.length - 1];
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
         if (e.shiftKey && document.activeElement === first) {
           e.preventDefault();
           last.focus();
@@ -105,8 +107,6 @@ export default function MobileHamburger() {
 
   const ui = (
     <div className="hm-layer">
-      {" "}
-      {/* ⬅️ fixed, top-level layer */}
       <div className="hm-bar">
         <button
           ref={btnRef}
@@ -155,20 +155,34 @@ export default function MobileHamburger() {
                         const target = document.querySelector(
                           href
                         ) as HTMLElement | null;
-                        // close first (iOS fix), then scroll
+
+                        // close first (iOS fix), then scroll with offset
                         document.body.style.overflow = "";
                         setOpen(false);
+
                         const doScroll = () => {
                           requestAnimationFrame(() => {
                             requestAnimationFrame(() => {
-                              target?.scrollIntoView({
+                              if (!target) return;
+
+                              const rect = target.getBoundingClientRect();
+                              const scrollTop =
+                                window.pageYOffset ||
+                                document.documentElement.scrollTop ||
+                                0;
+
+                              const y = rect.top + scrollTop - HEADER_OFFSET;
+
+                              window.scrollTo({
+                                top: y,
                                 behavior: "smooth",
-                                block: "start",
                               });
+
                               history.replaceState(null, "", href);
                             });
                           });
                         };
+
                         const drawer = panelRef.current;
                         if (drawer) {
                           const onEnd = () => {
@@ -178,6 +192,7 @@ export default function MobileHamburger() {
                           drawer.addEventListener("transitionend", onEnd, {
                             once: true,
                           });
+                          // fallback in case transitionend doesn't fire
                           setTimeout(onEnd, 260);
                         } else {
                           doScroll();
@@ -198,6 +213,6 @@ export default function MobileHamburger() {
     </div>
   );
 
-  // ⬅️ Render at <body> level to escape any transformed/z-index ancestors
+  // Render at <body> level to escape any transformed / z-index ancestors
   return createPortal(ui, document.body);
 }
