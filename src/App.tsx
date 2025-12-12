@@ -80,7 +80,7 @@ const daysTill = Math.ceil(
 );
 
 function App() {
-  const isLive = false;
+  const isLive = true;
   useRevealOnLoad();
   return isLive ? (
     <div className="main background-main">
